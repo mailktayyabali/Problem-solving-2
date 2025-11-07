@@ -4,7 +4,6 @@ struct Node {
     int data;
     Node* next;
 };
-// Function to display circular linked list
 void display(Node* head) {
     if (head == NULL) {
         cout << "List is empty.\n";
@@ -18,26 +17,24 @@ void display(Node* head) {
     } while (temp != head);
     cout << endl;
 }
-// Function to delete a node with a specific value
 void deleteNode(Node*& head, int value) {
     if (head == NULL) {
         cout << "List is empty.\n";
         return;
     }
     Node *curr = head, *prev = NULL;
-    // Handling deletion of head node separately
     do {
         if (curr->data == value) {
             if (prev != NULL) {
                 prev->next = curr->next;
             } else {
-                // Deleting head node
+                
                 Node* tail = head;
                 while (tail->next != head) {
                     tail = tail->next;
                 }
                 if (head->next == head) {
-                    // Only one node in the list
+                    
                     head = NULL;
                 } else {
                     tail->next = head->next;
@@ -71,7 +68,6 @@ void createCircularList(Node*& head, int n) {
             temp->next = newNode;
             temp = newNode;
         }
-        // At last node, connect it to head to make it circular
         if (i == n)
 
             temp->next = head;

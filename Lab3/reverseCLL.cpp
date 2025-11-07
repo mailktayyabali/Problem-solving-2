@@ -5,8 +5,6 @@ struct Node {
     int data;
     Node* next;
 };
-
-// Function to display circular linked list
 void display(Node* head) {
     if (head == NULL) {
         cout << "List is empty.\n";
@@ -20,23 +18,17 @@ void display(Node* head) {
     } while (temp != head);
     cout << endl;
 }
-
-// Function to reverse circular linked list
 void reverseList(Node*& head) {
     if (head == NULL || head->next == head) {
-        return;  // nothing to reverse
+        return;  
     }
-
     Node *prev = NULL, *current = head, *nextNode;
-
     do {
         nextNode = current->next;
         current->next = prev;
         prev = current;
         current = nextNode;
     } while (current != head);
-
-    // Fix the last connection
     head->next = prev;
     head = prev;
 }
@@ -52,8 +44,6 @@ int main() {
         cout << "Invalid number of nodes.\n";
         return 0;
     }
-
-    // Create circular linked list
     for (int i = 1; i <= n; i++) {
         newNode = new Node;
         cout << "Enter value for node " << i << ": ";
@@ -69,7 +59,7 @@ int main() {
         }
 
         if (i == n)
-            temp->next = head;  // make circular
+            temp->next = head; 
     }
 
     cout << "\nOriginal Circular Linked List:\n";

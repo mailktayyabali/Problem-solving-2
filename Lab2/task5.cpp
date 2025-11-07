@@ -1,5 +1,3 @@
-//Write a C++ program to sort an array of integers in ascending order using the bubble sort algorithm.
-
 #include <iostream>
 using namespace std;    
 int main ()
@@ -22,7 +20,6 @@ int main ()
         }
         pass++;
     }
-    
     cout <<"Sorted Element List ...\n";
     for(i = 0; i<10; i++) {
         cout <<a[i]<<"\t";

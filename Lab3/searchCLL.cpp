@@ -1,4 +1,3 @@
-// Write a C++ function to search for a given value in a circular linked list. If the value is found, display the position (index) of the node containing the value; otherwise, print a message indicating that the value was not found.
 #include <iostream>
 using namespace std;
 struct Node {
@@ -58,7 +57,6 @@ void createCircularList(Node*& head, int n) {
             temp->next = newNode;
             temp = newNode;
         }
-        // At last node, connect it to head to make it circular
         if (i == n)
             temp->next = head;
     }
