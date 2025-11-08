@@ -20,7 +20,7 @@ private:
     Node* current;   // current version
     Node* head;      // oldest version
     int historySize; // how many versions stored
-    const int MAX_HISTORY = 5; // limit to save memory
+    const int MAX_HISTORY = 5; 
 
 public:
     TextEditor() {
