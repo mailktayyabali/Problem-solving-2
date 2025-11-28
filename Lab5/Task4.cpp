@@ -1,7 +1,6 @@
 #include <iostream>
 #include <string>
 using namespace std;
-
 struct Node {
     string location;
     Node* prev;
@@ -11,22 +10,17 @@ struct Node {
         prev = next = nullptr;
     }
 };
-
 class DeliveryRoute {
 private:
     Node* head;
     Node* tail;
     Node* current;
-
 public:
     DeliveryRoute() {
         head = tail = current = nullptr;
     }
-
-    // 1️⃣ Add a new delivery location
     void addLocation(string loc) {
         Node* newNode = new Node(loc);
-
         if (!head) {
             head = tail = current = newNode;
         } else {
@@ -34,11 +28,8 @@ public:
             newNode->prev = tail;
             tail = newNode;
         }
-
         cout << "Added location: " << loc << endl;
     }
-
-    // 2️⃣ Remove completed delivery (by name)
     void completeDelivery(string loc) {
         Node* temp = head;
         while (temp) {
@@ -61,8 +52,6 @@ public:
         }
         cout << "Location not found: " << loc << endl;
     }
-
-    // 3️⃣ Move forward or backward through route
     void moveForward() {
         if (current && current->next) {
             current = current->next;
@@ -80,8 +69,6 @@ public:
             cout << "No previous delivery.\n";
         }
     }
-
-    // 4️⃣ Swap two consecutive deliveries
     void swapConsecutive(string firstLoc) {
         Node* first = head;
         while (first && first->next) {
@@ -113,11 +100,8 @@ public:
         }
         cout << "Cannot swap: " << firstLoc << " not found or no next node.\n";
     }
-
-    // 5️⃣ "Optimal route" — reorder alphabetically (simple demo)
     void calculateOptimalRoute() {
         if (!head || !head->next) return;
-
         bool swapped;
         do {
             swapped = false;
@@ -130,11 +114,8 @@ public:
                 temp = temp->next;
             }
         } while (swapped);
-
         cout << "Route reordered alphabetically (simple optimization).\n";
     }
-
-    // Show all locations
     void showRoute() {
         cout << "\n--- Current Delivery Route ---\n";
         Node* temp = head;
@@ -147,7 +128,6 @@ public:
         }
         if (!head) cout << "No deliveries scheduled.\n";
     }
-
     ~DeliveryRoute() {
         Node* temp = head;
         while (temp) {
@@ -157,8 +137,6 @@ public:
         }
     }
 };
-
-// --- Main ---
 int main() {
     DeliveryRoute route;
 
@@ -169,9 +147,9 @@ int main() {
 
     route.showRoute();
 
-    route.moveForward();  // move to Karachi
-    route.moveForward();  // move to Islamabad
-    route.moveBackward(); // move back to Karachi
+    route.moveForward();  
+    route.moveForward();  
+    route.moveBackward(); 
 
     route.swapConsecutive("Karachi");
     route.showRoute();

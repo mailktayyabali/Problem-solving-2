@@ -6,8 +6,8 @@ using namespace std;
 
 struct Patient {
     string name;
-    int priority; // 3=Critical, 2=Serious, 1=Stable
-    bool ambulance; // true = ambulance, false = walk-in
+    int priority; 
+    bool ambulance;
 };
 
 struct Queue {

@@ -128,10 +128,5 @@ int main() {
 
     history.clearRecent(2);
     history.showHistory();
-
-    // Simulate circular reference
-    // (For testing only)
-    // history.head->next->next = history.head;
-
     cout << (history.detectCycle() ? "Cycle detected!" : "No cycle detected.") << endl;
 }

@@ -8,7 +8,7 @@ using namespace std;
 struct PrintJob {
     int jobId;
     char userName[30];
-    int priority;   // 3=High, 2=Medium, 1=Low
+    int priority;   
     int pageCount;
     bool failed;
 };
@@ -139,8 +139,6 @@ int main() {
             cout << "Enter page count: ";
             cin >> j.pageCount;
             j.failed = false;
-
-            // Fairness: if user already has many jobs, deprioritize
             if (j.priority == 3 && (rand() % 5 == 0)) j.priority = 2;
 
             if (j.priority == 3) enqueue(high, j);
