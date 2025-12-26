@@ -1,4 +1,3 @@
-// Write a program that prompts the user to input values for the binary tree and then performs the traversals: Inorder, preorder and postorder.
 #include <iostream>
 using namespace std;
 struct Node {
@@ -53,7 +52,6 @@ int main() {
     for (int i = 1; i < n; ++i) {
         cout << "Enter the value for node " << i + 1 << ": ";
         cin >> val;
-        // For simplicity, we will insert nodes in a level order manner
         Node* newNode = new Node(val);
         Node* temp = root;
         while (true) {
@@ -64,7 +62,6 @@ int main() {
                 temp->right = newNode;
                 break;
             } else {
-                // Move to the next node in level order
                 if (temp->left != nullptr) {
                     temp = temp->left;
                 } else {

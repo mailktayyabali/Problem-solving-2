@@ -1,4 +1,3 @@
-// Write a program to create a simple binary tree and add nodes
 #include <iostream>
 using namespace std;
 struct Node {
